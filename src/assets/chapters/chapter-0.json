@@ -4,8 +4,9 @@
     "images": [
       {
         "url": "assets/images/image1.jpg",
-        "x": 400,
-        "y": 0,
+        "imageWidth": 1060,
+        "imageHeight": 1500,
+        "leftCrop": 560,
         "events": [
           {
             "id": 1,
@@ -21,13 +22,25 @@
       },
       {
         "url": "assets/images/image2.jpg",
-        "x": 150,
-        "y": 0,
+        "imageWidth": 1060,
+        "imageHeight": 1500,
         "events": [
           {
             "id": 3,
             "title": "Evento 3",
             "description": "Descrizione dettagliata dell'evento 3."
+          }
+        ]
+      },
+      {
+        "url": "assets/images/image3.jpg",
+        "imageWidth": 1060,
+        "imageHeight": 1500,
+        "events": [
+          {
+            "id": 4,
+            "title": "Evento 4",
+            "description": "Descrizione dettagliata dell'evento 4."
           }
         ]
       }

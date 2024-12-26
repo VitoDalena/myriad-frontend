@@ -10,8 +10,12 @@ export type ChapterImage = {
     id: number;
     url: string;
     events: ChapterEvent[];
-    x: number;
-    y: number;
+    imageWidth: number;
+    imageHeight: number;
+    leftCrop: number;
+    rightCrop: number;
+    topCrop: number;
+    bottomCrop: number;
 }
 
 export type ChapterEventConnection = {
