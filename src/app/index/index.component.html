@@ -1,0 +1,6 @@
+<h1>Indice</h1>
+<ul>
+  <li *ngFor="let chapter of chapters">
+    <a [routerLink]="['/chapter', chapter.id]">Capitolo {{ chapter.id }}</a>
+  </li>
+</ul>

@@ -1,0 +1,48 @@
+{
+    "id": 0,
+    "title": "Capitolo 0",
+    "images": [
+      {
+        "url": "assets/images/image1.jpg",
+        "x": 400,
+        "y": 0,
+        "events": [
+          {
+            "id": 1,
+            "title": "Evento 1",
+            "description": "Descrizione dettagliata dell'evento 1."
+          },
+          {
+            "id": 2,
+            "title": "Evento 2",
+            "description": "Descrizione dettagliata dell'evento 2."
+          }
+        ]
+      },
+      {
+        "url": "assets/images/image2.jpg",
+        "x": 150,
+        "y": 0,
+        "events": [
+          {
+            "id": 3,
+            "title": "Evento 3",
+            "description": "Descrizione dettagliata dell'evento 3."
+          }
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "start": 1,
+        "end": 2,
+        "color": "blue"
+      },
+      {
+        "start": 2,
+        "end": 3,
+        "color": "green"
+      }
+    ]
+  }
+  
