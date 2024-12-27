@@ -2,10 +2,12 @@ import { Component, OnInit, Input, ElementRef, HostListener } from '@angular/cor
 import * as d3 from 'd3';
 import { Chapter, ChapterEvent } from '../models/chapter';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-chapter',
-  standalone: true,
+  imports:[RouterModule, CommonModule],
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css']
 })
@@ -14,6 +16,9 @@ export class ChapterComponent implements OnInit {
   public placedNode: ChapterEvent[] = [];
   public windowWidth = window.innerWidth;
   public windowHeight = window.innerHeight;
+
+  public showDetails: boolean = false;
+  public selectedEvent?: ChapterEvent;
 
   constructor(private el: ElementRef, private http: HttpClient) {}
 
@@ -89,7 +94,7 @@ export class ChapterComponent implements OnInit {
           .attr('height', this.windowHeight+topCrop+bottomCrop)
           .attr('patternUnits', 'userSpaceOnUse')
           .append("image")
-          .attr("href", "/assets/images/immagineSfondo.jpg")
+          .attr("href", image.url)
           .attr('width', image.imageWidth * ratio)
           .attr('height', this.windowHeight+topCrop+bottomCrop);
         }
@@ -114,8 +119,7 @@ export class ChapterComponent implements OnInit {
               .attr('cx', node.cx)
               .attr('cy', node.cy)
               .attr('r', 10)
-              //.attr('fill', node.color || '#007bff')
-              .on('click', () => this.showDetails(node));
+              .on('click', () => this.openDetailsModal(node));
             this.placedNode.push(node);
             this.writeText(svg, node, 20);
           });
@@ -172,7 +176,13 @@ export class ChapterComponent implements OnInit {
     
   }
 
-  showDetails(node: any) {
-    alert(`Details for ${node.name}`);
+  openDetailsModal(node: ChapterEvent) {
+    this.selectedEvent = node;
+    this.showDetails = true;
+  }
+
+  closeDetailsModal() {
+    this.selectedEvent = undefined;
+    this.showDetails = false;
   }
 }
