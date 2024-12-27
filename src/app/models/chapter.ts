@@ -1,6 +1,6 @@
 export type ChapterEvent = {
     id: number;
-    title: string;
+    title: string[];
     description: string;
     cx: number;
     cy: number;

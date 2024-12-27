@@ -6,17 +6,31 @@
         "url": "assets/images/image1.jpg",
         "imageWidth": 1060,
         "imageHeight": 1500,
-        "leftCrop": 560,
+        "topCrop": 175,
+        "leftCrop": 500,
+        "bottomCrop": 175,
         "events": [
+          {},{},{},
           {
             "id": 1,
-            "title": "Evento 1",
-            "description": "Descrizione dettagliata dell'evento 1."
+            "title": ["Gli avventurieri vanno", "a esorcizzare K'rono"],
+            "description": ""
           },
           {
             "id": 2,
-            "title": "Evento 2",
-            "description": "Descrizione dettagliata dell'evento 2."
+            "title": ["Risparmiati i koboldi"],
+            "description": ""
+          },
+          {
+            "id": 3,
+            "title": ["1 cristallo rotto"],
+            "description": ""
+          },
+          {},
+          {
+            "id": 4,
+            "title": ["4 cristalli esorcizzati"],
+            "description": ""
           }
         ]
       },
@@ -24,11 +38,24 @@
         "url": "assets/images/image2.jpg",
         "imageWidth": 1060,
         "imageHeight": 1500,
+        "leftCrop": 170,
+        "topCrop": 300,
+        "bottomCrop": 500,
         "events": [
           {
-            "id": 3,
-            "title": "Evento 3",
-            "description": "Descrizione dettagliata dell'evento 3."
+            "id": 6,
+            "title": ["Aura viene liberata"],
+            "description": ""
+          },
+          {
+            "id": 5,
+            "title": ["Erurupp corrompe la mente", "di un warlock"],
+            "description": ""
+          },
+          {
+            "id": 7,
+            "title": ["I koboldi aiutano a", "sconfiggere Eurife"],
+            "description": ""
           }
         ]
       },
@@ -36,16 +63,66 @@
         "url": "assets/images/image3.jpg",
         "imageWidth": 1060,
         "imageHeight": 1500,
+        "topCrop": 175,
+        "leftCrop": 500,
+        "bottomCrop": 175,
+        "events": [
+          {},{},{},
+          {
+            "id": 8,
+            "title": ["Mac Anu è salva"],
+            "description": ""
+          },
+          {},
+          {
+            "id": 9,
+            "title": ["Erurupp uccide Uroboro"],
+            "description": ""
+          }
+        ]
+      },
+      {
+        "url": "assets/images/image3.jpg",
+        "imageWidth": 1060,
+        "imageHeight": 1500,
+        "leftCrop": 170,
+        "topCrop": 300,
+        "bottomCrop": 500,
         "events": [
           {
-            "id": 4,
-            "title": "Evento 4",
-            "description": "Descrizione dettagliata dell'evento 4."
+            "id": 10,
+            "title": ["Timothi porta Aura", "ad Arche Koeln"],
+            "description": ""
+          },
+          {
+            "id": 11,
+            "title": ["Erurupp si rifugia", "nell'energia di Morgana"],
+            "description": ""
+          },
+          {},
+          {},
+          {},
+          {
+            "id": 12,
+            "title": ["Trovata la", "\"Chiave del Crepuscolo\""],
+            "description": ""
           }
         ]
       }
     ],
     "connections": [
+      {
+        "end": 1,
+        "color": "blue"
+      },
+      {
+        "end": 5,
+        "color": "green"
+      },
+      {
+        "end": 8,
+        "color": "green"
+      },
       {
         "start": 1,
         "end": 2,
@@ -53,8 +130,33 @@
       },
       {
         "start": 2,
-        "end": 3,
+        "end": 7,
         "color": "green"
+      },
+      {
+        "start": 3,
+        "end": 11,
+        "color": "red"
+      },
+      {
+        "start": 4,
+        "end": 12,
+        "color": "green"
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "color": "blue"
+      },
+      {
+        "start": 6,
+        "end": 10,
+        "color": "blue"
+      },
+      {
+        "start": 9,
+        "end": 11,
+        "color": "blue"
       }
     ]
   }

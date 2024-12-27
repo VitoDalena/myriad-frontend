@@ -24,6 +24,47 @@ export class ChapterComponent implements OnInit {
     this.redraw();
   }
 
+  writeText(svg: d3.Selection<SVGSVGElement, unknown, null, undefined>, 
+    node: ChapterEvent,
+    fontSize: number) {
+    node.title.forEach((t, index) => {
+      svg.append("text")
+        .attr("x", node.cx + 14)
+        .attr("y", (node.cy + (index * (fontSize + 2))) + 2)
+        .style("font-size", fontSize+"px")
+        .style("font-weight", "bold")
+        .style("fill", "white")
+        .text(t);
+      svg.append("text")
+        .attr("x", node.cx + 14)
+        .attr("y", (node.cy + (index * (fontSize + 2))))
+        .style("font-size", fontSize+"px")
+        .style("font-weight", "bold")
+        .style("fill", "white")
+        .text(t);
+      svg.append("text")
+        .attr("x", node.cx + 12)
+        .attr("y", (node.cy + (index * (fontSize + 2))))
+        .style("font-size", fontSize+"px")
+        .style("font-weight", "bold")
+        .style("fill", "white")
+        .text(t);
+      svg.append("text")
+        .attr("x", node.cx + 12)
+        .attr("y", (node.cy + (index * (fontSize + 2))) + 2)
+        .style("font-size", fontSize+"px")
+        .style("font-weight", "bold")
+        .style("fill", "white")
+        .text(t);
+      svg.append("text")
+        .attr("x", node.cx + 13)
+        .attr("y", (node.cy + (index * (fontSize + 2))) + 1)
+        .style("font-size", fontSize+"px")
+        .style("font-weight", "bold")
+        .text(t);
+    })
+  }
+
   redraw() {
     if(this.rawData){
       const element = this.el.nativeElement.querySelector('#chapter-container');
@@ -42,10 +83,10 @@ export class ChapterComponent implements OnInit {
         let ratio = this.windowHeight/(image.imageHeight-topCrop-bottomCrop);
         defs.append("pattern")
           .attr("id", `bg${index}`)
-          .attr("x", (-leftCrop * ratio) + (index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowHeight/3)))
+          .attr("x", (-leftCrop * ratio) + (index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4)))
           .attr("y", -topCrop * ratio)
-          .attr('width',this.windowHeight)
-          .attr('height', this.windowHeight)
+          .attr('width',image.imageWidth * ratio)
+          .attr('height', this.windowHeight+topCrop+bottomCrop)
           .attr('patternUnits', 'userSpaceOnUse')
           .append("image")
           .attr("href", "/assets/images/immagineSfondo.jpg")
@@ -55,9 +96,9 @@ export class ChapterComponent implements OnInit {
       );
       this.rawData.images.forEach((image, index) => {
         svg.append('rect')
-          .attr('x', index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowHeight/3))
+          .attr('x', index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4))
           .attr('y', 0)
-          .attr('width', (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowHeight/3))
+          .attr('width', (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4))
           .attr('height', this.windowHeight)
           .style('fill', `url(#bg${index})`);
 
@@ -66,8 +107,9 @@ export class ChapterComponent implements OnInit {
       
           nodes.forEach(node => {
             y = y + 100;
+            if(!node.id) return;
             node.cy = y;
-            node.cx = 50 + (index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowHeight/3));
+            node.cx = 50 + (index * (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4));
             svg.append('circle')
               .attr('cx', node.cx)
               .attr('cy', node.cy)
@@ -75,23 +117,7 @@ export class ChapterComponent implements OnInit {
               //.attr('fill', node.color || '#007bff')
               .on('click', () => this.showDetails(node));
             this.placedNode.push(node);
-            svg.append("text")
-            .attr("x", node.cx + 14)
-            .attr("y", node.cy + 2)
-            .style("font-size", "16px")
-            .style("fill", "white")
-            .text(node.title);
-            svg.append("text")
-            .attr("x", node.cx + 12)
-            .attr("y", node.cy)
-            .style("font-size", "16px")
-            .style("fill", "white")
-            .text(node.title);
-            svg.append("text")
-            .attr("x", node.cx + 13)
-            .attr("y", node.cy + 1)
-            .style("font-size", "16px")
-            .text(node.title);
+            this.writeText(svg, node, 20);
           });
         }
       )
@@ -101,25 +127,33 @@ export class ChapterComponent implements OnInit {
       links.forEach(link => {
         let startNode = this.placedNode.find(node => node.id === link.start);
         let endNode = this.placedNode.find(node => node.id === link.end);
+        const offset = 75
         if(startNode && endNode){
           let path = `M ${startNode.cx},${startNode.cy} C `
-          // TODO linking algorithm
           if(startNode.cx != endNode.cx){
-            if(startNode.cy > endNode.cy){
-              
-            }else if(startNode.cy < endNode.cy){
-              
+            if(startNode.cy >= endNode.cy){
+              path = path + `${startNode.cx},${startNode.cy - offset} ${endNode.cx},${startNode.cy} `
             }else{
-              path = path + `${endNode.cx},${startNode.cy} ${endNode.cx + 100},${startNode.cy} ${endNode.cx},${endNode.cy}`
+              path = path + `${startNode.cx},${startNode.cy + offset} ${endNode.cx},${startNode.cy} `
             }
-            path = path + `${endNode.cx},${startNode.cy} ${endNode.cx + 100},${startNode.cy} ${endNode.cx},${endNode.cy}`
+          }else{
+            path = path + `${startNode.cx - offset},${startNode.cy} ${startNode.cx - offset},${endNode.cy} `
           }
-          // TODO add text
+          path = path + `${endNode.cx},${endNode.cy}`;
           svg.append('path')
-          .attr('d', `M ${startNode.cx},${startNode.cy} 
-                      C ${endNode.cx},${startNode.cy} 
-                        ${endNode.cx + 100},${startNode.cy} 
-                        ${endNode.cx},${endNode.cy}`)
+          .attr('d', path)
+          .attr('stroke', link.color || '#000')
+          .attr('stroke-width', 2)
+          .attr('fill', 'none');
+        }else if(!startNode && endNode){
+          svg.append('path')
+          .attr('d', `M ${endNode.cx},${endNode.cy} C ${endNode.cx},${endNode.cy - offset} ${endNode.cx - offset},${0} ${endNode.cx - offset},${0}`)
+          .attr('stroke', link.color || '#000')
+          .attr('stroke-width', 2)
+          .attr('fill', 'none');
+        }else if(startNode && !endNode){
+          svg.append('path')
+          .attr('d', `M ${startNode.cx},${startNode.cy} C ${startNode.cx},${startNode.cy - offset} ${startNode.cx - offset},${0}`)
           .attr('stroke', link.color || '#000')
           .attr('stroke-width', 2)
           .attr('fill', 'none');
