@@ -1,6 +1,9 @@
-<div id="chapter-container" class="chapter-container"></div>
-
-<div *ngIf="showDetails && selectedEvent"
-    id="event-details" class="event-details">
-
+<div id="chapter-container" class="chapter-container">
+    
 </div>
+
+<app-event-details *ngIf="showDetails && selectedEvent"
+    id="event-details" 
+    [event]="selectedEvent"
+    (close)="closeDetailsModal()">
+</app-event-details>

@@ -4,18 +4,19 @@ import { Chapter, ChapterEvent } from '../models/chapter';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { EventDetailsComponent } from "../event-details/event-details.component";
 
 @Component({
   selector: 'app-chapter',
-  imports:[RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, EventDetailsComponent],
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css']
 })
 export class ChapterComponent implements OnInit {
   public rawData?: Chapter;
   public placedNode: ChapterEvent[] = [];
-  public windowWidth = window.innerWidth;
-  public windowHeight = window.innerHeight;
+  public windowWidth = window.innerWidth < window.innerHeight ? (screen.width - (screen.width/10)) : window.innerWidth;
+  public windowHeight =  window.innerWidth < window.innerHeight ? (screen.height - (screen.height/10)) : window.innerHeight;
 
   public showDetails: boolean = false;
   public selectedEvent?: ChapterEvent;
@@ -74,9 +75,10 @@ export class ChapterComponent implements OnInit {
     if(this.rawData){
       const element = this.el.nativeElement.querySelector('#chapter-container');
       d3.select(element).select('svg').remove()
+      let width = (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4)*this.rawData.images.length;
       const svg = d3.select(element)
                     .append('svg')
-                    .attr('width', '100vw')
+                    .attr('width', width+'px')
                     .attr('height', this.windowHeight+'px');
       // Aggiungi le colonne (rettangoli con immagine di sfondo)
       const defs = svg.append("defs");
@@ -176,7 +178,7 @@ export class ChapterComponent implements OnInit {
     
   }
 
-  openDetailsModal(node: ChapterEvent) {
+  openDetailsModal(node: ChapterEvent) {    
     this.selectedEvent = node;
     this.showDetails = true;
   }
