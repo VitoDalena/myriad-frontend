@@ -1,9 +1,10 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { ChapterEvent } from '../models/chapter';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-event-details',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.css'
 })
@@ -19,4 +20,10 @@ export class EventDetailsComponent {
   }
   
   constructor(private el: ElementRef) { }
+
+  linearizeEventTitle(title: string[]) {
+    return title.join(' ');
+  }
+
+  // TODO cornice custom
 }

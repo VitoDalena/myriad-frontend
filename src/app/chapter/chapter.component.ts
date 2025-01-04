@@ -40,34 +40,44 @@ export class ChapterComponent implements OnInit {
         .style("font-size", fontSize+"px")
         .style("font-weight", "bold")
         .style("fill", "white")
-        .text(t);
+        .style("cursor", "pointer")
+        .text(t)
+        .on('click', () => this.openDetailsModal(node));
       svg.append("text")
         .attr("x", node.cx + 14)
         .attr("y", (node.cy + (index * (fontSize + 2))))
         .style("font-size", fontSize+"px")
         .style("font-weight", "bold")
         .style("fill", "white")
-        .text(t);
+        .style("cursor", "pointer")
+        .text(t)
+        .on('click', () => this.openDetailsModal(node));
       svg.append("text")
         .attr("x", node.cx + 12)
         .attr("y", (node.cy + (index * (fontSize + 2))))
         .style("font-size", fontSize+"px")
         .style("font-weight", "bold")
         .style("fill", "white")
-        .text(t);
+        .style("cursor", "pointer")
+        .text(t)
+        .on('click', () => this.openDetailsModal(node));
       svg.append("text")
         .attr("x", node.cx + 12)
         .attr("y", (node.cy + (index * (fontSize + 2))) + 2)
         .style("font-size", fontSize+"px")
         .style("font-weight", "bold")
         .style("fill", "white")
-        .text(t);
+        .style("cursor", "pointer")
+        .text(t)
+        .on('click', () => this.openDetailsModal(node));
       svg.append("text")
         .attr("x", node.cx + 13)
         .attr("y", (node.cy + (index * (fontSize + 2))) + 1)
         .style("font-size", fontSize+"px")
         .style("font-weight", "bold")
-        .text(t);
+        .style("cursor", "pointer")
+        .text(t)
+        .on('click', () => this.openDetailsModal(node));
     })
   }
 
@@ -121,6 +131,7 @@ export class ChapterComponent implements OnInit {
               .attr('cx', node.cx)
               .attr('cy', node.cy)
               .attr('r', 10)
+              .style("cursor", "pointer")
               .on('click', () => this.openDetailsModal(node));
             this.placedNode.push(node);
             this.writeText(svg, node, 20);
@@ -133,17 +144,18 @@ export class ChapterComponent implements OnInit {
       links.forEach(link => {
         let startNode = this.placedNode.find(node => node.id === link.start);
         let endNode = this.placedNode.find(node => node.id === link.end);
-        const offset = 75
+        const offsetX = 75
+        const offsetY = 100
         if(startNode && endNode){
           let path = `M ${startNode.cx},${startNode.cy} C `
           if(startNode.cx != endNode.cx){
             if(startNode.cy >= endNode.cy){
-              path = path + `${startNode.cx},${startNode.cy - offset} ${endNode.cx},${startNode.cy} `
+              path = path + `${startNode.cx},${startNode.cy - offsetY} ${endNode.cx},${startNode.cy} `
             }else{
-              path = path + `${startNode.cx},${startNode.cy + offset} ${endNode.cx},${startNode.cy} `
+              path = path + `${startNode.cx},${startNode.cy + offsetY} ${endNode.cx},${startNode.cy} `
             }
           }else{
-            path = path + `${startNode.cx - offset},${startNode.cy} ${startNode.cx - offset},${endNode.cy} `
+            path = path + `${startNode.cx - ((offsetX/4)*((endNode.cy - startNode.cy)/100))},${startNode.cy} ${startNode.cx - ((offsetX/4)*((endNode.cy - startNode.cy)/100))},${endNode.cy} `
           }
           path = path + `${endNode.cx},${endNode.cy}`;
           svg.append('path')
@@ -153,13 +165,13 @@ export class ChapterComponent implements OnInit {
           .attr('fill', 'none');
         }else if(!startNode && endNode){
           svg.append('path')
-          .attr('d', `M ${endNode.cx},${endNode.cy} C ${endNode.cx},${endNode.cy - offset} ${endNode.cx - offset},${0} ${endNode.cx - offset},${0}`)
+          .attr('d', `M ${endNode.cx},${endNode.cy} C ${endNode.cx},${endNode.cy - offsetY} ${endNode.cx - offsetX},${0} ${endNode.cx - offsetX},${0}`)
           .attr('stroke', link.color || '#000')
           .attr('stroke-width', 2)
           .attr('fill', 'none');
         }else if(startNode && !endNode){
           svg.append('path')
-          .attr('d', `M ${startNode.cx},${startNode.cy} C ${startNode.cx},${startNode.cy - offset} ${startNode.cx - offset},${0}`)
+          .attr('d', `M ${startNode.cx},${startNode.cy} C ${startNode.cx},${startNode.cy - offsetY} ${startNode.cx - offsetX},${0}`)
           .attr('stroke', link.color || '#000')
           .attr('stroke-width', 2)
           .attr('fill', 'none');

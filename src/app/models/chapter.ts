@@ -4,6 +4,8 @@ export type ChapterEvent = {
     description: string;
     cx: number;
     cy: number;
+    causes: string[];
+    effects: string[];
 }
 
 export type ChapterImage = {

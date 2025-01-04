@@ -1,9 +1,23 @@
 <div class="event-details">
     <div class="event-title">
-        {{ event.title }}
+        {{ linearizeEventTitle(event.title) }}
     </div>
-    <div class="event-causes"></div>
-    <div class="event-effects"></div>
+    <div class="event-causes">
+        <p>Cause:</p>
+        <ul>
+            <li *ngFor="let cause of event.causes">
+                {{ cause }}
+            </li>
+        </ul>
+    </div>
+    <div class="event-effects">
+        <p>Effetti:</p>
+        <ul>
+            <li *ngFor="let effect of event.effects">
+                {{ effect }}
+            </li>
+        </ul>
+    </div>
     <div class="event-description">
         {{ event.description }}
     </div>

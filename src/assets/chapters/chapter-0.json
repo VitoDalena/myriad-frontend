@@ -7,14 +7,16 @@
         "imageWidth": 1060,
         "imageHeight": 1500,
         "topCrop": 175,
-        "leftCrop": 500,
+        "leftCrop": 475,
         "bottomCrop": 175,
         "events": [
           {},{},{},
           {
             "id": 1,
             "title": ["Gli avventurieri vanno", "a esorcizzare K'rono"],
-            "description": ""
+            "causes": ["K'rono è stato liberato dalla sua prigione"],
+            "effects": ["Rottura/esorcizzazione dei cristalli", "Uccidere/risparmiare i koboldi saccheggiatori"],
+            "description": "Un gruppo di avventurieri esperto viene manadato alla caccia di K'rono, uno dei sacerdoti che corrupperol'energia della dea Aurora. Durante la loro missione, scoprono che il recipiente di K'rono è un bambino, un innocente il cui corpo è stato preso ostaggio dal secerdote. Inoltre, grazie all'intervento di un sacerdote dell'ordne della Dea, l'energia di K'rono è stata divisa in cristalli. Esorcizzare i cristalli è difficile, ma rompendoli l'energia verrà restituita alla divinità maligna Morgana."
           },
           {
             "id": 2,
@@ -37,7 +39,7 @@
         "url": "assets/images/image2.jpg",
         "imageWidth": 1060,
         "imageHeight": 1500,
-        "leftCrop": 170,
+        "leftCrop": 125,
         "topCrop": 300,
         "bottomCrop": 500,
         "events": [
@@ -63,7 +65,7 @@
         "imageWidth": 1060,
         "imageHeight": 1500,
         "topCrop": 175,
-        "leftCrop": 500,
+        "leftCrop": 475,
         "bottomCrop": 175,
         "events": [
           {},{},{},
@@ -84,7 +86,7 @@
         "url": "assets/images/image3.jpg",
         "imageWidth": 1060,
         "imageHeight": 1500,
-        "leftCrop": 170,
+        "leftCrop": 125,
         "topCrop": 300,
         "bottomCrop": 500,
         "events": [
@@ -126,6 +128,16 @@
         "start": 1,
         "end": 2,
         "color": "blue"
+      },
+      {
+        "start": 1,
+        "end": 3,
+        "color": "red"
+      },
+      {
+        "start": 1,
+        "end": 4,
+        "color": "green"
       },
       {
         "start": 2,

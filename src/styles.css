@@ -17,6 +17,7 @@ body {
 .event-details {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: fixed;
     top: 20%;
     left: 20%;
@@ -26,5 +27,22 @@ body {
     background-color: white;
     div {
       padding: 1em;
+      padding-bottom: 0;
     }
+}
+
+.event-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.event-causes, .event-effects {
+    p {
+      font-weight: bold;
+    }
+}
+
+.event-description {
+    overflow-y: scroll;
+    height: 25vh;
 }
