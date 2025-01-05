@@ -132,6 +132,13 @@ export class ChapterComponent implements OnInit {
               .attr('cy', node.cy)
               .attr('r', 10)
               .style("cursor", "pointer")
+              .style("fill", "white")
+              .on('click', () => this.openDetailsModal(node));
+            svg.append('circle')
+              .attr('cx', node.cx)
+              .attr('cy', node.cy)
+              .attr('r', 8)
+              .style("cursor", "pointer")
               .on('click', () => this.openDetailsModal(node));
             this.placedNode.push(node);
             this.writeText(svg, node, 20);
