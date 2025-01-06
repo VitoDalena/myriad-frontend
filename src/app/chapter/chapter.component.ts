@@ -206,4 +206,6 @@ export class ChapterComponent implements OnInit {
     this.selectedEvent = undefined;
     this.showDetails = false;
   }
+
+  // TODO force portait mode on mobile
 }

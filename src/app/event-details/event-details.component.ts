@@ -26,4 +26,6 @@ export class EventDetailsComponent {
   }
 
   // TODO cornice custom
+  // TODO all scrollable
+  // TODO auto select text on opening on mobile
 }
