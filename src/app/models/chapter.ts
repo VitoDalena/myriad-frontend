@@ -6,6 +6,8 @@ export type ChapterEvent = {
     cy: number;
     causes: string[];
     effects: string[];
+    done: boolean;
+    players: string[];
 }
 
 export type ChapterImage = {

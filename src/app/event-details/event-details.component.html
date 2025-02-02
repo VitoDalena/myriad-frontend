@@ -10,7 +10,7 @@
             </li>
         </ul>
     </div>
-    <div class="event-effects">
+    <div *ngIf="event.done" class="event-effects">
         <p>Effetti:</p>
         <ul>
             <li *ngFor="let effect of event.effects">
@@ -18,7 +18,26 @@
             </li>
         </ul>
     </div>
+    <div class="event-players">
+        <p *ngIf="event.done">Giocatori partecipanti:</p>
+        <p *ngIf="!event.done">Giocatori iscritti:</p>
+        <ul>
+            <li *ngFor="let p of event.players">
+                {{ p }}
+            </li>
+        </ul>
+        <button *ngIf="!event.done"
+            (click)="openSubscriptionForm()">
+            Iscriviti all'evento
+        </button>
+    </div>
     <div class="event-description">
         {{ event.description }}
     </div>
 </div>
+
+<app-subscription-form *ngIf="showSubscriptionForm" 
+    [event]="event" 
+    (close)="closeSubscriptionForm()">
+
+</app-subscription-form>
