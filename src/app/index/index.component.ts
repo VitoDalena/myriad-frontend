@@ -14,9 +14,4 @@ export class IndexComponent {
     { id: 2 },
     { id: 3 }
   ];
-
-  // TODO spiegazione gioco
-  // TODO aggiunta regole e homebrew attive
-
-  // TODO aggiunta link a breve riassunto globale e trama generale (per nuovi master)
 }

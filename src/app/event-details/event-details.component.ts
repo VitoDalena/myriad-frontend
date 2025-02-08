@@ -37,6 +37,8 @@ export class EventDetailsComponent {
     this.showSubscriptionForm = false;
   }
 
+  // TODO load partecipats from mongo if not done
+
   // TODO cornice custom
   // TODO all scrollable
   // TODO auto select text on opening on mobile
