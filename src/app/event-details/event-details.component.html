@@ -22,7 +22,7 @@
         <p *ngIf="event.done">Giocatori partecipanti:</p>
         <p *ngIf="!event.done">Giocatori iscritti:</p>
         <ul>
-            <li *ngFor="let p of event.players">
+            <li *ngFor="let p of subscribers">
                 {{ p }}
             </li>
         </ul>

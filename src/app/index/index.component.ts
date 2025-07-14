@@ -14,4 +14,8 @@ export class IndexComponent {
     { id: 2 },
     { id: 3 }
   ];
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+}
 }

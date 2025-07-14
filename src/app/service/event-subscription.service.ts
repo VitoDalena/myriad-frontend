@@ -14,4 +14,8 @@ export class EventSubscriptionService {
     });
   }
 
+  getEvent(eventId: number) {
+    return this.http.get('/api/get-event/' + eventId);
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ChapterEvent } from '../models/chapter';
 import { CommonModule } from '@angular/common';
 import { EventSubscriptionService } from '../service/event-subscription.service';
@@ -10,11 +10,12 @@ import { SubscriptionFormComponent } from "../subscription-form/subscription-for
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.css'
 })
-export class EventDetailsComponent {
+export class EventDetailsComponent implements OnInit{
   @Input() event!: ChapterEvent;
   @Output() close = new EventEmitter<void>();
 
   public showSubscriptionForm = false;
+  public subscribers: string[] = [];
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
@@ -23,7 +24,18 @@ export class EventDetailsComponent {
     }
   }
   
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private eventSubscriptionService: EventSubscriptionService) { }
+  ngOnInit(): void {
+    this.eventSubscriptionService.getEvent(this.event.id).subscribe(
+      {
+        next: (data) => {
+          if(!this.event.done)
+            this.subscribers = (data as any).subscribers.map((s: any) => s.nome);
+        },
+        error: () => {}
+      }
+    )
+  }
 
   linearizeEventTitle(title: string[]) {
     return title.join(' ');
@@ -37,7 +49,6 @@ export class EventDetailsComponent {
     this.showSubscriptionForm = false;
   }
 
-  // TODO load partecipats from mongo if not done
 
   // TODO cornice custom
   // TODO all scrollable
