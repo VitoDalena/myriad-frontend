@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { EventSubscriptionService } from '../service/event-subscription.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './subscription-form.component.html',
   styleUrl: './subscription-form.component.css'
 })
-export class SubscriptionFormComponent {
+export class SubscriptionFormComponent implements AfterViewChecked {
   @Input() event: any;
   @Output() close = new EventEmitter<void>();
 
@@ -19,8 +19,14 @@ export class SubscriptionFormComponent {
       this.close.emit();
     }
   }
+
+  @ViewChild('name')
+  nameInput!: ElementRef<HTMLInputElement>;
   
   constructor(private el: ElementRef, private eventSubscriptionService: EventSubscriptionService) { }
+  ngAfterViewChecked(): void {
+    this.nameInput.nativeElement.focus();
+  }
 
   public playerName = '';
   public playerEmail = '';

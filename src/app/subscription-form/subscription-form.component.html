@@ -1,5 +1,5 @@
 <div class="subscription-form">
-    <input type="text" placeholder="Nome" [(ngModel)]="playerName">
+    <input #name type="text" placeholder="Nome" [(ngModel)]="playerName">
     <input type="text" placeholder="Email" [(ngModel)]="playerEmail">
     <input type="text" placeholder="Telefono" [(ngModel)]="playerPhone">
     <button (click)="subscribeToEvent()">Iscriviti</button>

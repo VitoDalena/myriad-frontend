@@ -22,11 +22,15 @@ body {
     position: fixed;
     top: 20%;
     left: 20%;
-    width: 60vw;
-    height: 60vh;
-    border: 1px solid black;
+    min-width: 60vw;
+    max-width: 60vw;
+    min-height: 60vh;
+    max-height: 60vh;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     background-color: white;
-    overflow-y: scroll;
+    overflow-y: hidden;
     div {
       padding: 1em;
       padding-bottom: 0;
@@ -46,6 +50,7 @@ body {
 
 .event-description {
   padding-bottom: 5vh;
+  margin-bottom: 5vh;
 }
   
 .subscription-form {
@@ -53,11 +58,16 @@ body {
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 40%;
+    top: 25%;
     left: 40%;
-    width: 30vw;
-    height: 30vh;
-    border: 1px solid black;
+    padding: 2vh;
+    min-width: 18vw;
+    max-width: 18vw;
+    min-height: 18vh;
+    max-height: 18vh;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     background-color: white;
     div {
       padding: 1em;

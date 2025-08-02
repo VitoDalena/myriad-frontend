@@ -49,8 +49,4 @@ export class EventDetailsComponent implements OnInit{
     this.showSubscriptionForm = false;
   }
 
-
-  // TODO cornice custom
-  // TODO all scrollable
-  // TODO auto select text on opening on mobile
 }

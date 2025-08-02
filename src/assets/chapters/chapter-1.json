@@ -1,0 +1,25 @@
+{
+    "id": 1,
+    "title": "Capitolo 1",
+    "images": [
+      {
+        "url": "assets/images/image1.jpg",
+        "imageWidth": 736,
+        "imageHeight": 1104,
+        "events": [
+          {},{},{},
+          {
+            "id": 1,
+            "title": ["La ricostruzione di Mac Anu"],
+            "causes": ["Erurupp e Uroboro sono stati combattuti e sconfitti a Mac Anu", "E' stato chiesto l'aiuto del protettore d'argento"],
+            "effects": ["???"],
+            "description": "Qualche giorno dopo la battaglia che ha quasi distrutto Mac Anu, le riparazioni procedono a gonfie vele. Un gruppo di ricercatori ha organizzato una spedizione per recuperare i resti di Uroboro ed Erurupp, nella sua forma spaventosa. Un gruppo di avventurieri è stato assoldato per fare da scorta, ma è ammonito dall'ultimo rapporto della Gilda: un drago d'argento è stato liberato e ha avvertito sulla possibilità di andare fuori controllo. La città di Mac Anu è davvero al sicuro adesso?",
+            "done": false,
+            "players": []
+          }
+        ]
+      }
+      
+    ]
+  }
+  

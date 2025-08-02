@@ -20,6 +20,7 @@ export class ChapterComponent implements OnInit {
 
   public showDetails: boolean = false;
   public selectedEvent?: ChapterEvent;
+  redrawAllowed: boolean = true;
 
   constructor(private el: ElementRef, private http: HttpClient) {}
 
@@ -82,9 +83,10 @@ export class ChapterComponent implements OnInit {
   }
 
   redraw() {
-    if(this.rawData){
+    if(this.rawData && this.redrawAllowed){
       const element = this.el.nativeElement.querySelector('#chapter-container');
-      d3.select(element).select('svg').remove()
+      d3.select(element).select('svg').remove();
+      this.redrawAllowed = this.windowWidth >= this.windowHeight;
       let width = (this.windowWidth < this.windowHeight ? this.windowWidth : this.windowWidth/4)*this.rawData.images.length;
       const svg = d3.select(element)
                     .append('svg')
@@ -188,7 +190,10 @@ export class ChapterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Chapter>('assets/chapters/chapter-0.json').subscribe(data => {
+    const url = new URL(window.location.href);
+    const path = url.pathname.split('/').filter(x => x !== '');
+    let chapterId = path[path.length - 1];
+    this.http.get<Chapter>('assets/chapters/chapter-' + chapterId + '.json').subscribe(data => {
       if(data){
         this.rawData = data;
         this.redraw();
