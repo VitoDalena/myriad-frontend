@@ -13,6 +13,8 @@ export class SubscriptionFormComponent implements AfterViewChecked {
   @Input() event: any;
   @Output() close = new EventEmitter<void>();
 
+  firstLoad = true
+
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
     if(!this.el.nativeElement.contains(event.target)) {
@@ -25,7 +27,12 @@ export class SubscriptionFormComponent implements AfterViewChecked {
   
   constructor(private el: ElementRef, private eventSubscriptionService: EventSubscriptionService) { }
   ngAfterViewChecked(): void {
-    this.nameInput.nativeElement.focus();
+    if(this.firstLoad) {
+      this.nameInput.nativeElement.focus();
+      
+      this.firstLoad = false;
+      return;
+    }
   }
 
   public playerName = '';
