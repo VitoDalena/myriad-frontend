@@ -18,6 +18,23 @@
             "players": []
           }
         ]
+      },
+      {
+        "url": "assets/images/ricostruzione_mac_anu.png",
+        "imageWidth": 736,
+        "imageHeight": 916,
+        "events": [
+          {},{},{},
+          {
+            "id": 2,
+            "title": ["Due figli del passato"],
+            "causes": ["Kurono è stato salvato", "Aura è stata salvata"],
+            "effects": ["???"],
+            "description": "Alla gilda sono stati portati due bambini dal passato oscuro. Kurono, un tempo posseduto dall'antico stregone e ora libero, e Aura, la figlia, secondo le leggende, della dea Aurora. Alcuni degli avventurieri dispiegati per Mac Anu sono stanziati qui di guardia, quando un evento inaspettato sconvolge la sede della Gilda.",
+            "done": false,
+            "players": []
+          }
+        ]
       }
       
     ]
