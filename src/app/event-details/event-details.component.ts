@@ -26,6 +26,11 @@ export class EventDetailsComponent implements OnInit{
   
   constructor(private el: ElementRef, private eventSubscriptionService: EventSubscriptionService) { }
   ngOnInit(): void {
+    this.loadEvent();
+  }
+
+  loadEvent() {
+    
     this.eventSubscriptionService.getEvent(this.event.id).subscribe(
       {
         next: (data) => {
@@ -46,6 +51,7 @@ export class EventDetailsComponent implements OnInit{
   }
 
   closeSubscriptionForm() {
+    this.loadEvent();
     this.showSubscriptionForm = false;
   }
 
