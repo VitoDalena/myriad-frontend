@@ -63,3 +63,4 @@ For more information on using the Angular CLI, including detailed command refere
 * docker build . -t myriad-frontend:1.0.0
 * docker save myriad-frontend:1.0.0 -o myriad_frontend_image_1.0.0.tar.gz
 * scp myriad_frontend_image_1.0.0.tar.gz vdalena@vps-46a26e64.vps.ovh.net:/home/vdalena/
+* docker load -i myriad_frontend_image_1.0.0.tar.gz
