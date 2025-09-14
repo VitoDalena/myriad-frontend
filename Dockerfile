@@ -1,5 +1,5 @@
 # Fase 1: Build dell'app Angular
-FROM node:20 AS build
+FROM node:24 AS build
 
 # Imposta la directory di lavoro
 WORKDIR /app

@@ -41,3 +41,5 @@ src/assets/*
 # System files
 .DS_Store
 Thumbs.db
+
+myriad_frontend_image_*.tar.gz
