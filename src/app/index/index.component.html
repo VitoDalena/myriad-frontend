@@ -1,80 +1,108 @@
-<div style="overflow-y: scroll; top: 0; bottom: 0; left: 0; right: 0; position: fixed;">
-<nav style="width: 100%; background-color: lightblue; padding: 10px; display: flex; justify-content: space-around; position: fixed; top: 0; bottom: 95%">
-  <span (click)="scroll(welcome)" style="cursor: pointer; padding-top: 10px;">Benvenuto</span>
-  <span (click)="scroll(storysofar)" style="cursor: pointer; padding-top: 10px;">La storia finora</span>
-  <span (click)="scroll(activerules)" style="cursor: pointer; padding-top: 10px;">Regole attive</span>
-  <span (click)="scroll(chaptersSection)" style="cursor: pointer; padding-top: 10px;">Capitoli</span>
-</nav>
-<div style="margin: 1%;">
-  <div #welcome style="min-height: 90vh; padding-top: 5vh;">
-    <h1>Benvenuto a Myriad</h1>
-    <p>Myriad è un mondo fantastico creato da un gruppo di giocatori. Qui verranno archiviate le loro gesta, e verranno preparati i germogli delle nuove avventure.</p>
-    <p>Sei pronto a partire anche tu per la prossima avventura?</p>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myriad - Mondo Fantasy</title>
+</head>
+<body>
+  <nav>
+    <span onclick="document.getElementById('welcome').scrollIntoView({behavior: 'smooth'})">Benvenuto</span>
+    <span onclick="document.getElementById('storysofar').scrollIntoView({behavior: 'smooth'})">La storia</span>
+    <span onclick="document.getElementById('activerules').scrollIntoView({behavior: 'smooth'})">Regole</span>
+    <span onclick="document.getElementById('chapters').scrollIntoView({behavior: 'smooth'})">Capitoli</span>
+  </nav>
+
+  <div class="main-container">
+    <section id="welcome">
+      <h1>Benvenuto a Myriad</h1>
+      <p>Myriad è un mondo fantastico creato da un gruppo di giocatori. Qui verranno archiviate le loro gesta, e verranno preparati i germogli delle nuove avventure.</p>
+      <p>Sei pronto a partire anche tu per la prossima avventura?</p>
+    </section>
+
+    <section id="storysofar">
+      <h2>La storia finora</h2>
+      
+      <h3>Prologo</h3>
+      <div class="italic-section">
+        <p>In principio non v'era altro che luce. Una sola divinità, <strong>Aurora</strong>, dominava su questa luce. 
+          Ricolma d'amore, tale divinità riversò la luce nel ricettacolo di <strong>Myriad</strong>. Questa prese la forma del mondo che conosciamo.
+          Aurora divise la sua luce egualmente fra tutti i mortali. Coloro ai quali era stato fatto dono dell'intelletto elessero dei sacerdoti,
+          per comunicare con la dea e apprendere come usare al meglio la sua luce. L'ordine dei <strong>Sacerdoti dell'Alba</strong> era nato.</p>
+        <p>Aurora, innamorata com'era della sua creazione, decise di incarnarsi. Nella sua forma mortale, si unì ad un mortale, <strong>Harald</strong>, ed
+          insieme si dice ebbero una figlia. Ma presto, la divinità dovette fare ritorno al suo trono e abbandonare questo suo sogno effimero.
+          Alcuni sacerdoti dell'ordine, senza più la divinità ad amministrare la luce, decisero di prenderne possesso. Quel puro amore, una volta divenuto
+          proprietà di qualcuno, mutò in desiderio, in perversione. Infine, la luce divenne oscurità. Quando la Dea tornò nell'empireo, non c'era più nulla
+          ad attenderla. La sua forma si dissolse così nel nulla.</p>
+        <p>I sacerdoti rimasti fedeli ad Aurora chiamarono i disertori <strong>Sacerdoti Oscuri</strong> e diedero loro la caccia. Furono imprigionati
+          in luoghi segreti, per sempre sotto la guardia dei Sacerdoti dell'Alba. Da allora, ogni giorno i mortali hanno combattuto per risanare la luce che era stata
+          loro donata. E oggi anche a noi, come agli eroi che un tempo salvarono il mondo dai Sacerdoti Oscuri, spetta il compito di portare avanti quell'eredità.</p>
+      </div>
+
+      <h3>Capitolo 0</h3>
+      <p>Il <strong>Sacerdote Oscuro K'rono</strong>, risvegliato dal suo sigillo, si rifugia nelle rovine di Fort Ouph per recuperare le forze e attuare i suoi piani di dominio.
+        Un gruppo di esperti avventurieri riesce a trovarlo, ma scopre il macabro modo in cui era riuscito, ai tempi della leggenda, ad ottenere l'immortalità.
+        Usando dei bambini come tributo, abbandonava il suo corpo mortale per trasferirsi in uno nuovo, oscurando la volontà di quei giovani innocenti.
+        Proprio grazie alla forza di volontà di uno di quei giovani, gli avventurieri riescono ad esorcizzare quasi del tutto l'energia oscura di K'rono.
+        Tuttavia, giunge loro voce di pessimi eventi in corso nella città da cui provengono, Mac Anu.</p>
+      <p>Di ritorno da una missione come tante, un piccolo manipolo di avventurieri si ritrova catturato in una nebbia magica, che gli impedisce di tornare a casa.
+        Trovano però una grotta, con dentro quel che sembrano essere dei ricordi del defunto Harald, il compagno della dea Aurora. Addentrandosi in questo luogo,
+        scoprono che <strong>Aura</strong>, la figlia della Dea, è prigioniera di quel luogo. Lo Stregone Oscuro Eurife la tiene prigioniera, per ordine di 
+        <strong>Morgana</strong>, la divinità nata quando la luce divenne oscurità. Ma grazie all'aiuto di <strong>Fidchell</strong>, un singolare studioso
+        che il gruppo trova in quell'antro, i tre riescono a sconfiggere Eurife e a rimuove il sigillo su Aura, portandolo al sicuro. Ma proprio quando lo 
+        Stregone Oscuro si stava preparando a tornare all'attacco, una voce corrompe uno dei tre avventurieri, da cui comincia a fuoriuscire un potere magico 
+        incontrollato.</p>
+      <p>A Mac Anu regna il caos, dopo che una spaccatura nel cielo ha cominciato a mandare nel panico i cittadini. Gli avventurieri ancora sani di mente si radunano
+        in piazza, ma 4 di loro fanno la conoscenza di <strong>Toko e Bina</strong>, due goblin con l'incarico dal loro capovillaggio, di trovare il protettore
+        di Mac Anu e porre fine all'invasione. Il gruppo trova così un passaggio nascosto nel mercato centrale, che li conduce attraverso un portale ad un
+        drago argentato. Questi è uno degli originali fondatori dei Sacerdoti dell'Alba, ma è restio ad aiutare il gruppo, poiché sa di essere vulnerabile
+        alla corruzione di Morgana, motivo per cui si è rintanato in questo rifugio. Ma la situazione è critica, così decide di intervenire, facendosi promettere
+        che gli avventurieri lo avrebbero ucciso una volta terminata quella crisi. Ma proprio nel pieno dello scontro tra <strong>Uroboro</strong>, responsabile
+        della spaccatura nel cielo, ed il guardiano senza nome, ecco che un golem gigantesco, armato di falce, assassina il serpente divoratore di mondi e 
+        comincia a risucchiare la vita dagli abitanti di Mac Anu. È <strong>Erurupp</strong>, ex servitore di Uroboro, da questi rinnegato e pronto a prendere la sua
+        vendetta. Il gruppo di avventurieri però non si fa scoraggiare e respinge le ombre capaci di risucchiare la vita. Il drago protettore respinge il golem e 
+        Mac Anu sembra salva. Ma Erurupp non sembra ancora sconfitto.</p>
+      <p>Arche Koeln è un antico laboratorio sull'energia della luce, imbrigliata sin dai tempi antichi. Tre avventurieri ritrovano uno strano libro all'interno
+        del dedalo sottostante il laboratorio. Tornati in superficie, trovano <strong>Timothi</strong>, che ha aiutato 3 avventurieri a salvare Aura dalla sua
+        prigione. Ma quando la mano della bambina, ancora dormiente, tocca il libro, una visione attraversa la mente dei tre avventurieri, di tutti gli avventurieri
+        protagonisti di questo mondo. Un grande potere è ora in loro possesso. Forti di questo, il trio segue le energie oscure di Erurupp, che cercano di 
+        corrompere la luce presente ad Arche Koeln, e lo sconfiggono. La sorte del seguace di Uroboro è così finalmente decisa?</p>
+      <h3>Capitolo 1</h3>
+      <p>Con il recupero del bambino prescelto per la successione di <strong>K'rono</strong>, avente lo stesso nome del sacerdote oscuro, e <strong>Aura</strong>, 
+        la figlia della Dea, la Gilda impiega tutte le sue forze nella sede di Mac Anu per studiare i recenti avvenimenti. All'interno dei sotterranei però, un 
+        germoglio si manifesta, lanciando onde psichiche, mentre illusioni bloccano il passaggio dei presenti. Grazie all'acume di due giornalisti, 
+        <strong>Phinlo e Etnas</strong>, il gruppo scopre l'immunità a tali influenze da parte di K'rono. A quel punto, grazie ai trucchetti dell'essere fatato
+        <strong>Dis</strong> e la forza dell'aasimar <strong>Ryo</strong>, il pericolo sembra essere scongiurato. Analizzando i resti di quella strana pianta, 
+        il gruppo intuisce il suo intento: consegnare delle informazioni ad Aura. Si tratta di pensieri distorti, nati dal desiderio degli esseri viventi di riprodursi. 
+        Un campione di questi resti viene lasciato a Timothi per studiarlo, mentre Aura, a poco a poco, sembra deperire sempre di più, come se l'essere uscita dallo stato 
+        di riposo in cui si trovava fino a qualche giorno prima la stia lentamente sfinendo.</p>
+
+      <p>Ma la sede della Gilda non sembra essere l'unico posto sotto attacco. Ovunque ci sia terreno fertile sembrano germogliare questi piccoli bonsai, capaci di 
+        emanare onde psichiche. Alcuni, perfino, generano forme rocciose le cui membra sono mosse da pura energia oscura. Il pronto intervento di alcuni avventurieri
+        e della milizia cittadina riesce a scongiurare il peggio. <strong>Kurt</strong> e <strong>Ovan</strong>, l'uno con la forza bruta, l'altro con pesanti 
+        armamenti, distruggono uno dei germogli più grandi, cogliendo un dettaglio in più: forse le onde psichiche non sono indirizzate a Mac Anu, ma da qui partono 
+        per cercare qualcosa verso il cielo: il drago <strong>Argyros</strong>, che i due avevano contribuito a liberare qualche giorno prima. Grazie a 
+        <strong>Toko e Bina</strong>, il gruppo scopre che il protettore di Mac Anu si è diretto verso <strong>Dun Loireag</strong>, città di eremiti, forse per 
+        cercare riparo da quelle piante. Ovan riesce inoltre a ritrovare alcune rune, seppellite con il seme che aveva generato il bonsai. Queste, ormai prive di magia, 
+        indicano che, una volta estirpati, non è semplice far germogliare nuovamente queste piante. <strong>Ghismus</strong>, comandando i suoi sottoposti, 
+        ne organizza allora l'estirpazione. Sfortunatamente, uno di essi rimane in piedi e un gruppo di avventurieri, radunatosi lì, rimane intrappolato 
+        in una strana nebbia.</p>
+    </section>
+
+    <section id="activerules">
+      <h2>Regole attive</h2>
+      <h3>Chiave del Crepuscolo <span class="badge">Cariche: 9</span></h3>
+      <p>I giocatori possono usare una carica per usare un'Azione Leggendaria. Facendolo, possono effettuare un'azione alla fine del turno di un avversario.</p>
+    </section>
+
+    <section id="chapters">
+      <h2>Seleziona un capitolo</h2>
+      <ul>
+        <li *ngFor="let chapter of chapters">
+          <a [routerLink]="['/chapter', chapter.id]">Capitolo {{ chapter.id }}</a>
+        </li>
+      </ul>
+    </section>
   </div>
-  <div #storysofar style="min-height: 90vh; padding-top: 5vh;">
-    <h2>La storia finora</h2>
-    <h3>Prologo</h3>
-    <div style="font-style: italic; margin-left: 10%; margin-right: 10%;">
-    <p>In principio non v'era altro che luce. Una sola divinità, <strong>Aurora</strong>, dominava su questa luce. 
-      Ricolma d'amore, tale divinità riversò la luce nel ricettacolo di <strong>Myriad</strong>. Questa prese la forma del mondo che conosciamo.
-      Aurora divise la sua luce egualmente fra tutti i mortali. Coloro ai quali era stato fatto dono dell'intelletto elessero dei sacerdoti,
-      per comunicare con la dea e apprendere come usare al meglio la sua luce. L'ordine dei <strong>Sacerdoti dell'Alba</strong> era nato.</p>
-    <p>Aurora, innamorata com'era della sua creazione, decise di incarnarsi. Nella sua forma mortale, si unì ad un mortale, <strong>Harald</strong>, ed
-      insieme si dice ebbero una figlia. Ma presto, la divinità dovette fare ritorno al suo trono e abbandonare questo suo sogno effimero.
-      Alcuni sacerdoti dell'ordine, senza più la divinità ad amministrare la luce, decisero di prenderne possesso. Quel puro amore, una volta divenuto
-      proprietà di qualcuno, mutò in desiderio, in perversione. Infine, la luce divenne oscurità. Quando la Dea tornò nell'empireo, non c'era più nulla
-      ad attenderla. La sua forma si dissolse così nel nulla.</p>
-    <p>I sacerdoti rimasti fedeli ad Aurora chiamarono i disertori <strong>Sacerdoti Oscuri</strong> e diedero loro la caccia. Furono imprigionati
-      in luoghi segreti, per sempre sotto la guardia dei Sacerdoti dell'Alba. Da allora, ogni giorno i mortali hanno combattuto per risanare la luce che era stata
-      loro donata. E oggi anche a noi, come agli eroi che un tempo salvarono il mondo dai Sacerdoti Oscuri, spetta il compito di portare avanti quell'eredità.</p>
-    </div>
-    <h3>Capitolo 0</h3>
-    <p>Il <strong>Sacerdote Oscuro K'rono</strong>, risvegliato dal suo sigillo, si rifugia nelle rovine di Fort Ouph per recuperare le forze e attuare i suoi piani di dominio.
-      Un gruppo di esperti avventurieri riesce a trovarlo, ma scopre il macabro modo in cui era riuscito, ai tempi della leggenda, ad ottenere l'immortalità.
-      Usando dei bambini come tributo, abbandonava il suo corpo mortale per trasferirsi in uno nuovo, oscurando la volontà di quei giovani innocenti.
-      Proprio grazie alla forza di volontà di uno di quei giovani, gli avventurieri riescono ad esorcizzare quasi del tutto l'energia oscura di K'rono.
-      Tuttavia, giunge loro voce di pessimi eventi in corso nella città da cui provengono, Mac Anu.
-    </p>
-    <p>Di ritorno da una missione come tante, un piccolo manipolo di avventurieri si ritrova catturato in una nebbia magica, che gli impedisce di tornare a casa.
-      Trovano però una grotta, con dentro quel che sembrano essere dei ricordi del defunto Harald, il compagno della dea Aurora. Addentrandosi in questo luogo,
-      scoprono che <strong>Aura</strong>, la figlia della Dea, è prigioniera di quel luogo. Lo Stregone Oscuro Eurife la tiene prigioniera, per ordine di 
-      <strong>Morgana</strong>, la divnità nata quanto la luce divenne oscurità. Ma grazie all'aiuto di <strong>Fidchell</strong>, un singolare studioso
-      che il gruppo trova in quell'antro, i tre riescono a sconfiggere Eurife e a rimuove il sigillo su Aura, portandolo al sicuro. Ma proprio quando lo 
-      Stregone Oscuro si stava preparando a tornare all'attacco,una voce corrompe uno dei tre avventurieri, da cui comincia a fuoriuscire un potere magico 
-      incontrollato.
-    </p>
-    <p>A Mac Anu regna il chaos, dopo che un spaccatura nel cielo ha cominciato a mandare nel panico i cittadini. Gli avventurieri ancora sani di mente si radunano
-      in piazza, ma 4 di loro fanno la conoscenza di <strong>Toko e Bina</strong>, due goblin con l'incarico dal loro capovillaggio, di trovare il protettore
-      di Mac Anu e porre fine all'invasione. Il gruppo trova così un passaggio nascosto nel mercato centrale, che li conduce attraverso un portale ad un
-      drago argentato. Questi è uno degli originali fondatori dei Sacerdoti dell'Alba, ma è restio ad aiutare il gruppo, poichè sa di essere vulnerabile
-      alla corruzione di Morgana, motivo per cui si è rintanato in questo rifugio. Ma la situazione è critica, così decide di intervenire, facendosi promettere
-      che gli avventurieri lo avrebbero ucciso una volta terminata quella crisi. Ma proprio nel pieno dello scontro tra <strong>Uroboro</strong>, responsabile
-      della spaccatura nel cielo, ed il guardiano senza nome, ecco che un golem gigantesco, armato di falce, assassina il serpente divoratore di mondi e 
-      comincia a risucchiare la vita dagli abitanti di Mac Anu. E' <strong>Erurupp</strong>, ex servitore di Uroboro, da questi rinnegato e pronto a prendere la sua
-      vendetta. Il gruppo di avventurieri però non si fa scoraggiare e respinge le ombre capaci di risucchiare la vita. Il drago protettore respinge il golem e 
-      Mac Anu sembra salva. Ma Erurupp non sembra ancora sconfitto.
-    </p>
-    <p>Arche Koeln è un antico laboratorio sull'energia della luce, imbrigliata sin dai tempi antichi. Tre avventurieri ritrovano uno strano libro all'interno
-      del dedalo sottostante il laboratorio. Tornati in superficie, trovano <strong>Timothi</strong>, che ha aiutato 3 avventurieri a salvare Aura dalla sua
-      prigione. Ma quando la mano della bambina, ancora dormiente, tocca il libro, una visione attravers la mente dei tre avventurieri, di tutti gli avventurieri
-      protagonisti di questo mondo. Un grande potere è ora in loro possesso. Forti di questo, il trio segue le energie oscure di Erurupp, che cercano di 
-      corrompere la luce presente ad Arche Koeln, e lo sconfiggono. La sorte del seguace di Uroboro è così finalmente decisa?
-    </p>
-  </div>
-  <div #activerules style="min-height: 90vh; padding-top: 5vh;">
-    <h2>Regole attive</h2>
-    <span style="font-size: large; font-weight: bold;">Chiave del Crepuscolo</span><span><small style="margin-left: 4px;">[cariche attive: 2]</small></span>
-    <p>
-      I giocatori possono usare una carica per usare un'Azione Leggendaria. Facendolo, possono effettuare un'azione alla fine del turno di un avversario.
-    </p>
-  </div>
-  <div #chaptersSection style="min-height: 90vh; padding-top: 5vh;">
-    <h2>Seleziona un capitolo</h2>
-    <ul>
-      <li *ngFor="let chapter of chapters">
-        <a [routerLink]="['/chapter', chapter.id]">Capitolo {{ chapter.id }}</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
+</body>
+</html>

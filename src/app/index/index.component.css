@@ -1,0 +1,203 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+
+    /* Navbar */
+    nav {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    nav span {
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    nav span:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Container principale */
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+      padding-top: 80px;
+    }
+
+    /* Sezioni */
+    section {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      scroll-margin-top: 80px;
+    }
+
+    h1 {
+      color: #2d5f7f;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1e3a5f;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-bottom: 3px solid #2d5f7f;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      color: #2d5f7f;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    /* Testo in corsivo (prologo) */
+    .italic-section {
+      font-style: italic;
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-left: 4px solid #2d5f7f;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    strong {
+      color: #1e3a5f;
+      font-weight: bold;
+    }
+
+    /* Badge per cariche */
+    .badge {
+      display: inline-block;
+      background: #2d5f7f;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+
+    /* Lista capitoli */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+    }
+
+    ul li a {
+      display: block;
+      padding: 1rem;
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    ul li a:hover {
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive mobile */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.75rem 0.5rem;
+      }
+
+      nav span {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.5rem;
+        min-width: 80px;
+      }
+
+      .main-container {
+        padding: 0.5rem;
+        padding-top: 100px;
+      }
+
+      section {
+        padding: 1.5rem;
+        scroll-margin-top: 100px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        text-align: left;
+      }
+
+      .italic-section {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav span {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.4rem;
+        min-width: 70px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+    }
