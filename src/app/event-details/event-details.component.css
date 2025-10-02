@@ -110,13 +110,6 @@ ul li {
   line-height: 1.5;
 }
 
-ul li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #2d5f7f;
-  font-weight: bold;
-}
 
 /* Descrizione */
 .event-description {

@@ -143,6 +143,15 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
+    ul li:not(#chapters li)::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #2d5f7f;
+      font-weight: bold;
+    }
+    
+
     /* Responsive mobile */
     @media (max-width: 768px) {
       nav {
