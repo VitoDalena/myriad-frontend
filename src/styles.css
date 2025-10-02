@@ -14,63 +14,10 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
-.event-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    top: 20%;
-    left: 20%;
-    min-width: 60vw;
-    max-width: 60vw;
-    min-height: 60vh;
-    max-height: 60vh;
-    border: 3px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    background-color: white;
-    overflow-y: hidden;
-    div {
-      padding: 1em;
-      padding-bottom: 0;
-    }
-}
 
-.event-title {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.event-causes, .event-effects, .event-players {
-    p {
-      font-weight: bold;
-    }
-}
 
 .event-description {
   padding-bottom: 5vh;
   margin-bottom: 5vh;
 }
   
-.subscription-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    top: 25%;
-    left: 40%;
-    padding: 2vh;
-    min-width: 18vw;
-    max-width: 18vw;
-    min-height: 18vh;
-    max-height: 18vh;
-    border: 3px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    background-color: white;
-    div {
-      padding: 1em;
-      padding-bottom: 0;
-    }
-}

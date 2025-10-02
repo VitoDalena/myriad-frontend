@@ -1,7 +1,38 @@
 <div class="subscription-form">
-    <input #name type="text" placeholder="Nome" [(ngModel)]="playerName">
-    <input type="text" placeholder="Email" [(ngModel)]="playerEmail">
-    <input type="text" placeholder="Telefono" [(ngModel)]="playerPhone">
-    <button (click)="subscribeToEvent()">Iscriviti</button>
-    <button (click)="close.emit()">Annulla</button>
+  <input 
+    #name 
+    type="text" 
+    placeholder="Nome *" 
+    [(ngModel)]="playerName"
+    [class.error]="showErrors && !playerName"
+    (keyup.enter)="focusNext(emailInputRef)">
+  
+  <input 
+    #emailInput
+    type="email" 
+    placeholder="Email *" 
+    [(ngModel)]="playerEmail"
+    [class.error]="showErrors && !isValidEmail()"
+    (keyup.enter)="focusNext(phoneInputRef)">
+  
+  <input 
+    #phoneInput
+    type="tel" 
+    placeholder="Telefono" 
+    [(ngModel)]="playerPhone"
+    (keyup.enter)="subscribeToEvent()">
+  
+  <div class="button-group">
+    <button 
+      [class.loading]="isLoading"
+      [disabled]="isLoading"
+      (click)="subscribeToEvent()">
+      Iscriviti
+    </button>
+    <button 
+      [disabled]="isLoading"
+      (click)="closeForm()">
+      Annulla
+    </button>
+  </div>
 </div>

@@ -1,0 +1,271 @@
+/* Container modale */
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Card del modale */
+.event-details {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Titolo */
+.event-title {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  .close-button {
+    width: 10%;
+    cursor: pointer;
+  }
+  span {
+    width: 90%;
+    align-content: center;
+  }
+}
+
+/* Contenuto scrollabile */
+.event-details > div:last-of-type {
+  overflow-y: auto;
+  padding: 1.5rem;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sezioni */
+.event-causes,
+.event-effects,
+.event-players,
+.event-description {
+  margin-bottom: 1.5rem;
+}
+
+.event-causes p,
+.event-effects p,
+.event-players p {
+  font-weight: bold;
+  color: #1e3a5f;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Liste */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #2d5f7f;
+  font-weight: bold;
+}
+
+/* Descrizione */
+.event-description {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #2d5f7f;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Bottone iscrizione */
+button {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(45, 95, 127, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(45, 95, 127, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar personalizzata */
+.event-details > div:last-of-type::-webkit-scrollbar {
+  width: 8px;
+}
+
+.event-details > div:last-of-type::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.event-details > div:last-of-type::-webkit-scrollbar-thumb {
+  background: #2d5f7f;
+  border-radius: 10px;
+}
+
+.event-details > div:last-of-type::-webkit-scrollbar-thumb:hover {
+  background: #1e3a5f;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 767px) {
+  :host {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .event-details {
+    border-radius: 0;
+    max-height: 100vh;
+    height: 100vh;
+    max-width: 100%;
+    animation: slideUpMobile 0.3s ease-out;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .event-title {
+    font-size: 1.3rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .event-details > div:last-of-type {
+    padding: 1rem;
+  }
+
+  .event-causes p,
+  .event-effects p,
+  .event-players p {
+    font-size: 1.1rem;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+  }
+
+  .event-description {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    position: sticky;
+    bottom: 0;
+    margin-top: 1.5rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .event-details {
+    max-width: 500px;
+    max-height: 80vh;
+  }
+
+  .event-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Indicatore di scroll per mobile */
+@media (max-width: 767px) {
+  .event-details > div:last-of-type::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, white, transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .event-details > div:last-of-type:not(:hover)::after {
+    opacity: 1;
+  }
+}
+
+/* Fix per iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 767px) {
+    .event-details {
+      height: -webkit-fill-available;
+    }
+  }
+}

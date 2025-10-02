@@ -1,0 +1,249 @@
+/* Container form */
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Card del form */
+.subscription-form {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  max-width: 450px;
+  width: 100%;
+  animation: scaleIn 0.3s ease-out;
+  position: relative;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Titolo form */
+.subscription-form::before {
+  content: "Iscriviti all'evento";
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: #2d5f7f;
+  box-shadow: 0 0 0 3px rgba(45, 95, 127, 0.1);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #999;
+}
+
+/* Container bottoni */
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Bottoni */
+button {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* Bottone primario (Iscriviti) */
+button:first-of-type {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5f7f 100%);
+  color: white;
+  box-shadow: 0 4px 10px rgba(45, 95, 127, 0.3);
+}
+
+button:first-of-type:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(45, 95, 127, 0.5);
+}
+
+button:first-of-type:active {
+  transform: translateY(0);
+}
+
+button:first-of-type:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Bottone secondario (Annulla) */
+button:last-of-type {
+  background: #f5f5f5;
+  color: #666;
+  border: 2px solid #e0e0e0;
+}
+
+button:last-of-type:hover {
+  background: #e8e8e8;
+  border-color: #ccc;
+}
+
+button:last-of-type:active {
+  background: #d8d8d8;
+}
+
+/* Validazione errori */
+input.error {
+  border-color: #e74c3c;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 767px) {
+  :host {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .subscription-form {
+    border-radius: 15px 15px 0 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 1.5rem;
+    animation: slideUpMobile 0.3s ease-out;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .subscription-form::before {
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    padding: 1rem;
+    font-size: 16px; /* Previene zoom su iOS */
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subscription-form {
+    max-width: 400px;
+  }
+}
+
+/* Animazione loading per bottone submit */
+button:first-of-type.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+button:first-of-type.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Fix per iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    font-size: 16px;
+  }
+}

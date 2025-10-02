@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.css",
               "src/app/index/index.component.css",
-              "src/app/chapter/chapter.component.css"
+              "src/app/chapter/chapter.component.css",
+              "src/app/event-details/event-details.component.css"
             ],
             "scripts": []
           },
@@ -70,7 +71,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "host": "0.0.0.0",
+            "host": "localhost",
             "proxyConfig": "src/proxy.conf.json"
           }
         },

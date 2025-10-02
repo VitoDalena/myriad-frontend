@@ -1,45 +1,46 @@
 <div class="event-details">
-    <div class="event-title">
-        {{ linearizeEventTitle(event.title) }}
+  <div class="event-title">
+    <span>{{ linearizeEventTitle(event.title) }}</span>
+    <div class="close-button" (click)="this.close.emit()" aria-label="Chiudi">
+      ✕
     </div>
-    <div style="overflow-y: scroll;">
-        <div class="event-causes">
-            <p>Cause:</p>
-            <ul>
-                <li *ngFor="let cause of event.causes">
-                    {{ cause }}
-                </li>
-            </ul>
-        </div>
-        <div *ngIf="event.done" class="event-effects">
-            <p>Effetti:</p>
-            <ul>
-                <li *ngFor="let effect of event.effects">
-                    {{ effect }}
-                </li>
-            </ul>
-        </div>
-        <div class="event-players">
-            <p *ngIf="event.done">Giocatori partecipanti:</p>
-            <p *ngIf="!event.done">Giocatori iscritti:</p>
-            <ul>
-                <li *ngFor="let p of subscribers">
-                    {{ p }}
-                </li>
-            </ul>
-            <button *ngIf="!event.done"
-                (click)="openSubscriptionForm()">
-                Iscriviti all'evento
-            </button>
-        </div>
-        <div class="event-description">
-            {{ event.description }}
-        </div>
+  </div>
+  <div style="overflow-y: scroll;">
+    <div class="event-causes">
+      <p>Cause:</p>
+      <ul>
+        <li *ngFor="let cause of event.causes">
+          {{ cause }}
+        </li>
+      </ul>
     </div>
+    <div *ngIf="event.done" class="event-effects">
+      <p>Effetti:</p>
+      <ul>
+        <li *ngFor="let effect of event.effects">
+          {{ effect }}
+        </li>
+      </ul>
+    </div>
+    <div class="event-players">
+      <p *ngIf="event.done">Giocatori partecipanti:</p>
+      <p *ngIf="!event.done">Giocatori iscritti:</p>
+      <ul>
+        <li *ngFor="let p of subscribers">
+          {{ p }}
+        </li>
+      </ul>
+      <button *ngIf="!event.done"
+        (click)="openSubscriptionForm()">
+        Iscriviti all'evento
+      </button>
+    </div>
+    <div class="event-description">
+      {{ event.description }}
+    </div>
+  </div>
 </div>
-
-<app-subscription-form *ngIf="showSubscriptionForm" 
-    [event]="event" 
-    (close)="closeSubscriptionForm()">
-
+<app-subscription-form *ngIf="showSubscriptionForm"
+  [event]="event"
+  (close)="closeSubscriptionForm()">
 </app-subscription-form>
