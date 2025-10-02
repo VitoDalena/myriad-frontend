@@ -1,0 +1,88 @@
+.chapter-container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  background: #1a1a1a;
+  /* Smooth scrolling su tutti i browser */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+}
+
+/* Nascondi scrollbar ma mantieni funzionalità */
+.chapter-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.chapter-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.chapter-container::-webkit-scrollbar-thumb {
+  background: rgba(45, 95, 127, 0.6);
+  border-radius: 4px;
+}
+
+.chapter-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 95, 127, 0.8);
+}
+
+/* SVG responsive */
+.chapter-container svg {
+  display: block;
+  height: 100vh;
+}
+
+/* Ottimizzazione touch per mobile */
+.chapter-container svg text,
+.chapter-container svg circle {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Stili responsive per mobile */
+@media (max-width: 767px) {
+  .chapter-container {
+    /* Migliora performance su mobile */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  .chapter-container::-webkit-scrollbar {
+    height: 4px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet styles */
+  .chapter-container::-webkit-scrollbar {
+    height: 6px;
+  }
+}
+
+/* Animazione per apertura modale */
+#event-details {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix per iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .chapter-container {
+    height: -webkit-fill-available;
+  }
+}

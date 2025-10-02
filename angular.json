@@ -29,7 +29,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/app/index/index.component.css"
+              "src/app/index/index.component.css",
+              "src/app/chapter/chapter.component.css"
             ],
             "scripts": []
           },
