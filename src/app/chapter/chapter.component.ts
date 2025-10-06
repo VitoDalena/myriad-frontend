@@ -212,12 +212,12 @@ export class ChapterComponent implements OnInit {
           
       } else if (!startNode && endNode) {
         // Connessione dall'alto
+        let offset = Math.random() * 300;
         svg.append('path')
-          .attr('d', `M ${endNode.cx},${endNode.cy} C ${endNode.cx},${endNode.cy - sizes.pathOffsetY} ${endNode.cx - sizes.pathOffsetX},${0} ${endNode.cx - sizes.pathOffsetX},${0}`)
+          .attr('d', `M ${endNode.cx},${endNode.cy} C ${endNode.cx},${endNode.cy - sizes.pathOffsetY} ${endNode.cx - (sizes.pathOffsetX + offset)},${0} ${endNode.cx - (sizes.pathOffsetX +offset)},${0}`)
           .attr('stroke', link.color || '#000')
           .attr('stroke-width', this.isMobile ? 3 : 2)
           .attr('fill', 'none');
-          
       } else if (startNode && !endNode) {
         // Connessione verso l'alto
         svg.append('path')
