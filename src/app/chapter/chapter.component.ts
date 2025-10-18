@@ -33,7 +33,7 @@ export class ChapterComponent implements OnInit {
 
   // Calcola dimensioni responsive
   getResponsiveSizes() {
-    const isMobile = this.windowWidth < 768;
+    const isMobile = this.windowWidth < 768 || this.windowHeight > this.windowWidth;
     const isTablet = this.windowWidth >= 768 && this.windowWidth < 1024;
     
     return {
@@ -41,7 +41,7 @@ export class ChapterComponent implements OnInit {
                    isTablet ? this.windowWidth / 3 : 
                    this.windowWidth / 4,
       circleRadius: isMobile ? 8 : 10,
-      fontSize: isMobile ? 14 : 20,
+      fontSize: isMobile ? (this.windowWidth < 768 ? 22 : 32) : (this.windowWidth < 1440 ? 14 : 20),
       verticalSpacing: isMobile ? 80 : 100,
       horizontalOffset: isMobile ? 30 : 50,
       textOffsetX: isMobile ? 10 : 14,

@@ -72,7 +72,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "host": "localhost",
+            "host": "0.0.0.0",
             "proxyConfig": "src/proxy.conf.json"
           }
         },
