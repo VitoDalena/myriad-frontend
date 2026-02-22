@@ -11,7 +11,8 @@ export class IndexComponent {
   chapters = [
     { id: 0 },
     { id: 1 },
-    { id: '1-b'}
+    { id: '1-b'},
+    { id: '1-c'}
   ];
 
   scroll(el: HTMLElement) {
